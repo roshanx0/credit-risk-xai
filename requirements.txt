@@ -1,0 +1,40 @@
+# Core ML Libraries (Python 3.13 compatible)
+numpy>=1.26.0
+pandas>=2.1.0
+scikit-learn>=1.4.0
+
+# Gradient Boosting Models
+xgboost>=2.1.0
+lightgbm>=4.3.0
+catboost>=1.2.5
+
+# Explainability
+shap>=0.45.0
+lime>=0.2.0.1
+
+# Imbalance Handling
+imbalanced-learn>=0.12.0
+
+# API Framework
+fastapi>=0.110.0
+uvicorn>=0.29.0
+pydantic>=2.6.0
+python-multipart>=0.0.9
+
+# Visualization
+matplotlib>=3.8.0
+seaborn>=0.13.0
+plotly>=5.20.0
+
+# Utilities
+joblib>=1.4.0
+tqdm>=4.66.0
+python-dotenv>=1.0.0
+pyyaml>=6.0.0
+
+# Data Download
+kaggle>=1.6.0
+requests>=2.31.0
+
+# Testing
+pytest>=8.0.0

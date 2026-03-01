@@ -1,0 +1,78 @@
+# Credit Risk XAI Configuration
+
+# Data Settings
+data:
+  dataset_name: "lending_club"
+  raw_path: "data/raw/lending_club.csv"
+  processed_path: "data/processed/"
+  test_size: 0.2
+  val_size: 0.1
+  random_state: 42
+  sample_size: 50000 # Use subset for faster training, null for full dataset
+
+# Preprocessing
+preprocessing:
+  outlier_std_threshold: 3 # Clip outliers beyond 3 sigma
+  missing_threshold: 0.5 # Drop features with >50% missing
+  correlation_threshold: 0.95 # Drop highly correlated features
+
+# Imbalance Handling
+imbalance:
+  method: "smote" # smote, adasyn, or null
+  sampling_strategy: 0.5 # Ratio of minority to majority class
+
+# Model Training
+models:
+  xgboost:
+    n_estimators: [100, 200, 300]
+    max_depth: [3, 4, 5, 6]
+    learning_rate: [0.01, 0.05, 0.1]
+    subsample: [0.8, 0.9, 1.0]
+    colsample_bytree: [0.8, 0.9, 1.0]
+    scale_pos_weight: 2 # For imbalanced data
+
+  lightgbm:
+    n_estimators: [100, 200, 300]
+    max_depth: [3, 4, 5, 6]
+    learning_rate: [0.01, 0.05, 0.1]
+    num_leaves: [31, 50, 70]
+
+  catboost:
+    iterations: [100, 200, 300]
+    depth: [3, 4, 5, 6]
+    learning_rate: [0.01, 0.05, 0.1]
+
+# Risk Engine
+risk_engine:
+  thresholds:
+    low_risk: 0.3 # < 30% default probability
+    high_risk: 0.7 # >= 70% default probability
+  interest_rates:
+    base_rate: 0.08 # 8%
+    low_risk_adjustment: 0.0
+    moderate_risk_adjustment: 0.05 # +5%
+    high_risk_adjustment: 0.10 # +10%
+  business_costs:
+    false_positive_cost: 5000 # Lost profit from rejected good loan
+    false_negative_cost: 20000 # Loss from defaulted loan
+
+# Explainability
+explainability:
+  shap:
+    max_samples: 1000 # For SHAP background dataset
+    interaction_depth: 2
+  lime:
+    num_features: 10
+    num_samples: 5000
+
+# API Settings
+api:
+  host: "0.0.0.0"
+  port: 8000
+  debug: true
+
+# Output Settings
+outputs:
+  models_dir: "models/"
+  visualizations_dir: "outputs/visualizations/"
+  reports_dir: "outputs/reports/"

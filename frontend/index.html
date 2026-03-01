@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Credit Risk Assessment - India | CIBIL + FOIR Based</title>
+    <title>Interpretable Credit Risk System</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -64,6 +64,30 @@
         padding: 30px;
         border-radius: 8px;
         box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+      }
+
+      .form-card {
+        max-height: calc(100vh - 180px);
+        overflow-y: auto;
+        padding-right: 15px;
+      }
+
+      .form-card::-webkit-scrollbar {
+        width: 8px;
+      }
+
+      .form-card::-webkit-scrollbar-track {
+        background: #f1f1f1;
+        border-radius: 4px;
+      }
+
+      .form-card::-webkit-scrollbar-thumb {
+        background: #10b981;
+        border-radius: 4px;
+      }
+
+      .form-card::-webkit-scrollbar-thumb:hover {
+        background: #059669;
       }
 
       .card h2 {
@@ -406,6 +430,10 @@
         .main-content {
           grid-template-columns: 1fr;
         }
+
+        .form-card {
+          max-height: 600px;
+        }
       }
 
       @media (max-width: 768px) {
@@ -422,16 +450,15 @@
   <body>
     <div class="container">
       <div class="header">
-        <h1>🇮🇳 India Credit Risk Assessment</h1>
+        <h1>Interpretable Credit Risk System</h1>
         <p class="subtitle">
-          <span class="highlight">CIBIL + FOIR + Banking Behavior</span> | 
-          Realistic Indian Lending Model
+          <span class="highlight">CIBIL + FOIR + Banking Behavior</span>
         </p>
       </div>
 
       <div class="main-content">
         <!-- Input Form -->
-        <div class="card">
+        <div class="card form-card">
           <h2>Loan Application Details</h2>
           <form id="applicationForm">
             

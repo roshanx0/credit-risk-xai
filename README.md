@@ -1,4 +1,4 @@
-# India-Realistic Credit Risk Assessment System
+# Interpretable Credit Risk Assessment System
 
 A production-ready machine learning system for credit default prediction with explainable AI, designed specifically for the Indian credit market.
 
